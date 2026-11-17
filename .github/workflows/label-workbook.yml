@@ -1,0 +1,71 @@
+name: Add in-workbook provenance disclosure
+on:
+  push:
+    paths: ['.github/workflows/label-workbook.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install openpyxl
+      - name: Add provenance page preserving charts and formula counts
+        shell: bash
+        run: |
+          python - <<'PY'
+          from openpyxl import load_workbook
+          from openpyxl.styles import Font, PatternFill, Alignment
+          path='manitoba_health_equity.xlsx'
+          wb=load_workbook(path)
+          before_charts=sum(len(ws._charts) for ws in wb)
+          before_formulas=sum(isinstance(cell.value,str) and cell.value.startswith('=') for ws in wb for row in ws for cell in row)
+          if 'START HERE' in wb.sheetnames:
+              del wb['START HERE']
+          ws=wb.create_sheet('START HERE',0)
+          ws.column_dimensions['A'].width=34
+          ws.column_dimensions['B'].width=98
+          rows=[
+              ('Portfolio project','Manitoba Regional Health Equity'),
+              ('DATA TYPE','DEMONSTRATION / NOT FULLY RECONCILED TO OFFICIAL SOURCES'),
+              ('How to interpret','This workbook is a simulated regional health equity demonstration. RHA-level rates, access indicators, index scores and correlations are generated, not official Manitoba Health estimates. In particular, ecological associations across five RHAs do not establish causation.'),
+              ('Reference source','https://www.gov.mb.ca/health/annstats/'),
+              ('Source validation','See SOURCE_VALIDATION.md in the matching GitHub repository.'),
+              ('Important','Do not use the modeled results for real clinical, funding or policy decisions.'),
+          ]
+          for i,(label,value) in enumerate(rows,1):
+              ws.cell(i,1,label)
+              ws.cell(i,2,value)
+              ws.cell(i,1).font=Font(bold=True,color='0D5C63',size=11)
+              ws.cell(i,2).alignment=Alignment(wrap_text=True,vertical='top')
+              ws.row_dimensions[i].height=55 if i in (2,3) else 32
+          ws['A1'].fill=PatternFill('solid',fgColor='E8F3F4')
+          for sh in wb.worksheets:
+              if sh.title=='START HERE':continue
+              for row in sh:
+                  for cell in row:
+                      if isinstance(cell.value,str) and 'KEY FINDINGS — REAL CIHI NHEX DATA' in cell.value:
+                          cell.value='WORKING FIGURES — SOURCE RECONCILIATION PENDING'
+                      if isinstance(cell.value,str) and cell.value.strip()=='Recommendation':
+                          cell.value='Illustrative recommendation; requires source validation'
+          wb.save(path)
+          chk=load_workbook(path)
+          after_charts=sum(len(sh._charts) for sh in chk)
+          after_formulas=sum(isinstance(c.value,str) and c.value.startswith('=') for sh in chk for row in sh for c in row)
+          print('Original charts=',before_charts,'Final charts=',after_charts)
+          print('Original formulas=',before_formulas,'Final formulas=',after_formulas)
+          assert before_charts==after_charts and before_formulas==after_formulas
+          assert chk.sheetnames[0]=='START HERE'
+          print('In-workbook provenance disclosure installed.')
+          PY
+      - name: Commit revised workbook
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'manitoba_health_equity.xlsx'
+          git diff --cached --quiet || (git commit -m "Add clear provenance to Excel workbook" && git push)

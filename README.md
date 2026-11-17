@@ -85,3 +85,12 @@ Use the simulated findings to demonstrate analytical methods, not to rank actual
 The RHA dataset is simulated. The 41.5% no-doctor rate, composite equity score and mortality association do not constitute official Manitoba Health estimates. A correlation among only five regions cannot establish causation. Document indicator sources, index weights, denominators and uncertainty before applying this analysis to policy.
 
 Manitoba Health Annual Statistics are published as PDF reports, not downloadable CSVs. This project uses simulated data anchored to published RHA-level indicators from the Manitoba Health Annual Statistics 2022–23 report. The simulation script documents all source figures inline. The analytical methodology reflects the approach used in provincial health planning roles.
+
+---
+
+## Reproducibility and execution status
+
+**Environment:** Python 3 with `pandas` and `numpy` installed. If working with the Excel files, install `openpyxl` as needed. Run the simulation script before the analysis commands shown above.
+
+**Important:** The scripts are designed for the generated datasets and expected column names. Downloading a public government table does **not** guarantee that it will run with these scripts unchanged; a schema-mapping and validation step is required for authentic external data. The repository has undergone a static documentation and code-reference audit, but a fresh environment execution and independent reconciliation with official datasets have not yet been completed.
+

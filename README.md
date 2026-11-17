@@ -47,17 +47,9 @@ python analysis.py            # full analysis with equity scores and recommendat
 
 ---
 
-## Illustrative Findings From Generated Data
+## Illustrative analytical outputs
 
-1. **Northern RHA premature mortality is nearly twice the provincial average.** Premature mortality in Northern RHA (669 per 100,000) is 2.0x the average of the other four RHAs (339). This is the most severe health equity gap in the province and reflects structural failures in primary care access, not just population risk factors.
-
-2. **41% of Northern residents have no regular doctor.** The Northern no-doctor rate (41.5%) is the highest in Manitoba and 20 percentage points above the provincial average. Without a regular physician, chronic disease management defaults to emergency services, which drives the high hospitalisation rate (145 per 1,000).
-
-3. **Northern diabetes prevalence is double Winnipeg's rate.** Northern RHA diabetes prevalence (19.6%) is 2.0x Winnipeg's rate (9.7%). Prairie Mountain also exceeds the provincial average. Structured community health worker programs in these two RHAs would cost less than the downstream hospital admissions from unmanaged diabetes.
-
-4. **Low income is the strongest predictor of poor health outcomes.** Low income correlates r=0.94 with mortality rate across all five RHAs. Northern RHA has 38.6% low-income population versus 18.2% in Winnipeg. Health investment alone cannot close this gap without parallel investment in income supports and housing.
-
----
+This project's Python/SQL outputs illustrate data processing, comparisons, modeling and reporting using generated records. The specific rates, rankings, cost figures and trends in the demonstration are **not verified official findings**. See the analysis scripts for the computations and the data limitations section below for interpretation requirements.
 
 ## Excel Workbook
 
@@ -72,17 +64,9 @@ python analysis.py            # full analysis with equity scores and recommendat
 
 ---
 
-## Hypothetical Recommendations
+## Interpretation and real-world next steps
 
-1. **Northern RHA — critical primary care intervention.** Fund a full-time primary care team in each of the 8 largest northern communities with guaranteed multi-year contracts. The 41% no-doctor rate cannot be addressed by incentive programs alone — it requires structural placement commitments.
-
-2. **Diabetes prevention in Northern and Prairie Mountain RHAs.** Both RHAs have diabetes prevalence nearly double Winnipeg's rate. A community health worker program focused on nutrition and physical activity in these two RHAs would reduce hospital admissions from unmanaged diabetes at lower cost than acute care.
-
-3. **Expand the Rural Physician Incentive Program.** Interlake-Eastern and Northern RHAs have the lowest physician visit rates per capita. Loan forgiveness tied to 3-year rural placement commitments is the most cost-effective physician recruitment tool available to Manitoba Health.
-
-4. **Income as root cause.** Health spending alone cannot close equity gaps in the Northern RHA. Housing and income supports for Northern communities must run in parallel with any health system investment — the correlation data makes this unambiguous.
-
----
+Use the simulated findings to demonstrate analytical methods, not to rank actual jurisdictions or recommend clinical or policy interventions. A real decision requires matched official data, documented definitions, relevant uncertainty, and clinical or operational stakeholder review. Financial scenarios must include assumptions, costs and sensitivity analysis.
 
 ## Files
 

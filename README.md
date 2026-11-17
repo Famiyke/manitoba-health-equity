@@ -1,8 +1,10 @@
 # Project 6: Manitoba Regional Health Equity Analysis
 
+> **DATA PROVENANCE:** This portfolio project uses simulated records informed by named Canadian public sources. All generated statistics, rankings, demographic differences, and savings models are illustrative rather than verified official estimates. Recommendations are hypothetical scenarios, not observed effects.
+
 **Domain:** Health Equity / Social Determinants of Health
 **Tools:** Python · SQL · Excel
-**Real Data Source:** Manitoba Health Annual Statistics
+**Public reference source (distinct from simulated analysis data):** Manitoba Health Annual Statistics
 **Download:** https://www.gov.mb.ca/health/annstats/
 (Free — PDF reports by year, extract tables manually into Excel)
 
@@ -45,7 +47,7 @@ python analysis.py            # full analysis with equity scores and recommendat
 
 ---
 
-## Key Findings
+## Illustrative Findings From Generated Data
 
 1. **Northern RHA premature mortality is nearly twice the provincial average.** Premature mortality in Northern RHA (669 per 100,000) is 2.0x the average of the other four RHAs (339). This is the most severe health equity gap in the province and reflects structural failures in primary care access, not just population risk factors.
 
@@ -70,7 +72,7 @@ python analysis.py            # full analysis with equity scores and recommendat
 
 ---
 
-## Strategic Recommendations
+## Hypothetical Recommendations
 
 1. **Northern RHA — critical primary care intervention.** Fund a full-time primary care team in each of the 8 largest northern communities with guaranteed multi-year contracts. The 41% no-doctor rate cannot be addressed by incentive programs alone — it requires structural placement commitments.
 
@@ -94,5 +96,8 @@ python analysis.py            # full analysis with equity scores and recommendat
 
 ---
 
-## Data Note
+## Data Provenance and Limitations
+
+The RHA dataset is simulated. The 41.5% no-doctor rate, composite equity score and mortality association do not constitute official Manitoba Health estimates. A correlation among only five regions cannot establish causation. Document indicator sources, index weights, denominators and uncertainty before applying this analysis to policy.
+
 Manitoba Health Annual Statistics are published as PDF reports, not downloadable CSVs. This project uses simulated data anchored to published RHA-level indicators from the Manitoba Health Annual Statistics 2022–23 report. The simulation script documents all source figures inline. The analytical methodology reflects the approach used in provincial health planning roles.

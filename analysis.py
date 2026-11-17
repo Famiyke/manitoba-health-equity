@@ -4,6 +4,10 @@ Data Detective → Programmer → Storyteller → Consultant
 Manitoba Health Equity Analysis
 """
 
+# PORTFOLIO DATA NOTICE: All computed findings below use simulated/generated
+# analytical records, not verified official Canadian statistics. Numeric outputs
+# illustrate methods only; any program recommendations require source validation.
+
 import pandas as pd
 import numpy as np
 
@@ -127,39 +131,17 @@ for _, r in north_yoy.iterrows():
           f" {r['no_doc_pct']:>11.1f}% {r['physician_visits_pc']:>11.1f}{note}")
 
 # ── Recommendations ───────────────────────────────────────────────────────────
-print(f"\n{'─'*62}")
-print("STRATEGIC RECOMMENDATIONS")
-print(f"{'─'*62}")
+print("\\nILLUSTRATIVE INTERPRETATION AND NEXT STEPS")
+print("-" * 62)
 print("""
-  1. NORTHERN RHA — CRITICAL INTERVENTION
-     Northern Manitoba has premature mortality twice
-     the provincial average and 41% of residents
-     report having no regular doctor. This is not
-     a data problem — it is a placement problem.
-     Manitoba Health should fund a full-time primary
-     care team in each of the 8 largest northern
-     communities, with guaranteed multi-year contracts.
+These results come from a generated portfolio dataset. They are not
+verified Canadian population or health-system estimates.
 
-  2. DIABETES AND HYPERTENSION PREVENTION
-     Northern and Prairie Mountain RHAs have diabetes
-     prevalence nearly double Winnipeg's rate.
-     A structured community health worker program
-     focused on nutrition and physical activity in
-     these two RHAs would cost less than the hospital
-     admissions that result from unmanaged diabetes.
-
-  3. PHYSICIAN ACCESS GAPS
-     Interlake-Eastern and Northern RHAs have the
-     lowest physician visit rates per capita.
-     Manitoba should expand its Rural Physician
-     Incentive Program and provide loan forgiveness
-     tied to 3-year rural placement commitments.
-
-  4. INCOME AS ROOT CAUSE
-     Low-income proportion correlates strongly with
-     every negative health outcome across all RHAs.
-     Health spending alone cannot close equity gaps
-     without parallel investment in housing and
-     income supports for the Northern RHA population.
+Potential next steps for a real-world study:
+1. Obtain and validate authoritative source data and definitions.
+2. Recalculate differences, including denominators and uncertainty.
+3. Work with clinical, community or operational partners to assess
+   feasibility and avoid treating associations as causal effects.
+4. Treat cost differences and savings as sensitivity-tested scenarios,
+   not realized outcomes or established policy recommendations.
 """)
-print(sep)

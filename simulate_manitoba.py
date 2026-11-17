@@ -1,8 +1,9 @@
-"""
-Project 6 – simulate_manitoba.py
-Builds representative Manitoba RHA-level health data
-from published Manitoba Health Annual Statistics figures.
-Real data: https://www.gov.mb.ca/health/annstats/
+"""Generate synthetic Manitoba regional indicator data.
+
+All RHA rates, counts, determinants, and modeled scores are illustrative.
+They have not been independently verified against Manitoba Health tables.
+Do not use them to rank actual regional health authority performance.
+Reference: https://www.gov.mb.ca/health/annstats/
 """
 
 import pandas as pd
@@ -20,8 +21,7 @@ RHAS = {
     "Shared Health (prov)": {"pop":None,  "northern":False,"remote":False},
 }
 
-# Published Manitoba Health Stats — RHA indicators
-# Source: Manitoba Health Annual Statistics 2022-23
+# Assumed indicator parameters for a synthetic demonstration; NOT official rates
 RHA_DATA = {
     "Winnipeg": {
         "mortality_rate": 7.8, "premature_mort": 312, "diabetes_prev": 9.4,
